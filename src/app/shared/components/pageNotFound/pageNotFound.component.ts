@@ -6,7 +6,7 @@ import { Location } from '@angular/common';
   template: `
     <div class="pageNotFound">
     	<div class="pageNotFound-content">
-    		<img src="/assets/images/Martian.png" />
+    		<img src="../../../assets/images/Martian.png" />
       	<h1>{{ 'PageNotFound.Title' | translate }}</h1>
       	<h3>{{ 'PageNotFound.Subtitle' | translate }}</h3>
       	<button (click)="goBack()">{{ 'PageNotFound.Button' | translate }}</button>
