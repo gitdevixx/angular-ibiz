@@ -1,0 +1,7 @@
+{
+    "/getAnUserDetail/*": {
+        "target": "https://fierce-cove-29863.herokuapp.com",
+        "secure": true,
+        "changeOrigin": true
+    }
+}

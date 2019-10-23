@@ -1,0 +1,18 @@
+<p>api test</p>
+
+<!-- <form (ngSubmit)="onSubmit($event, userId.value)"> -->
+<form>
+    <input type="text" #userId placeholder="User ID">
+    <!-- <button type="submit">{{"W0001" | translate}}</button> -->
+    <!-- <button (click)="test()">테스트</button> -->
+</form>
+<button (click)="onSubmit($event, userId.value)">{{"W0001" | translate}}</button>
+<br/>
+<br/>
+<div>
+    <span>결과값 : </span>
+    <span>{{testSandbox.userInfo}}</span>
+</div>
+
+<spinner [isRunning]="testSandbox.userInfoLoading$ | async"></spinner>
+
