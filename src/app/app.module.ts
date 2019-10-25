@@ -18,6 +18,7 @@ import { reducers, effects } from './shared/store';
 // Sub Modules
 import { MainModule } from './main/main.module'
 import { TestModule } from './test/test.module';
+import { VixxModule } from './vixx/vixx.module';
 // Environment
 import { environment } from '../environments/environment'
 
@@ -52,6 +53,7 @@ export function createTranslateLoader(http: HttpClient) {
     FormsModule,
     MainModule,
     TestModule,
+    VixxModule,
     /**
      * App Routing Module
      */
