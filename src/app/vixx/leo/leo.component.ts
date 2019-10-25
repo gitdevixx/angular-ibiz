@@ -5,8 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './leo.component.html',
   styleUrls: [
     './leo.component.css',
-    './bootstrap.css',
-    './simple-line-icons.css'
+    './external-source/css/bootstrap.css',
+    './external-source/css/stylish-portfolio.css',
+    './external-source/css/simple-line-icons.css'
   ]
 })
 export class LeoComponent implements OnInit {
