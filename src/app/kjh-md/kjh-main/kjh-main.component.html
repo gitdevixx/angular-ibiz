@@ -1,0 +1,17 @@
+<app-kjh-toolbar></app-kjh-toolbar>
+<div>
+  <input type="text" name="testCntInput" readonly="readonly" value={{clickCnt}}>
+  <input type="button" name="testCntButton" value="클릭" (click)="cntButtonClick($event)">
+</div>
+<div>
+  <input type="text" name="testTextSumInput" #testTextSumInput>
+  <input type="button" name="testTextSumButton" value="클릭" (click)="textSumButton($event, testTextSumInput.value)">&nbsp;
+  <textarea name="testTextSumInput" cols="30" rows="10" readonly="readonly" value={{viewText}}></textarea>
+  
+</div>
+
+<input matInput placeholder="budget" type="text"/> 
+
+<button mat-raised-button color="primary">Click me!</button>
+
+
