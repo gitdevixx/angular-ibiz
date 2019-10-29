@@ -1,5 +1,5 @@
-<button class="btn btn-xs" (click)="switchLanguage('en')">{{ "eng" | translate }}</button>
-<button class="btn btn-xs" (click)="switchLanguage('ko')">{{ "kor" | translate }}</button>
+<button class="btn btn-sm btn-light" (click)="switchLanguage('en')">{{ "eng" | translate }}</button>
+<button class="btn btn-sm btn-light" (click)="switchLanguage('ko')">{{ "kor" | translate }}</button>
 <div class="jumbotron">
   <h3>{{ "testPage.title" | translate:langDatas }}</h3>
   <p>{{ "testPage.title1" | translate }}</p>
@@ -12,14 +12,27 @@
 <form [formGroup]="vixxForm" (ngSubmit)="onSubmit(vixxForm.value)">
   <div class="form-group">
     <label for="memberId">ID <span class="text-danger">*</span></label>
-    <input type="text" class="form-control" formControlName="id" id="memberId">
+    <input type="text" class="form-control" formControlName="id" id="memberId" required>
+    <div *ngIf="!vixxForm.valid" class="text-danger">
+      ID is required.
+    </div>
   </div>
+
   <div class="form-group">
     <label for="memberText">MEMO</label>
     <input type="text" class="form-control" formControlName="text" id="memberText">
   </div>
+
+  <div class="form-group">
+    <label for="memberName">Name</label>
+    <input type="text" class="form-control" formControlName="name" id="memberName">
+    <!-- <div *ngIf="vixxForm.errors" class="text-danger">
+      Name must be at least 4 characters long.
+    </div> -->
+  </div>
+
   <button class="btn btn-primary" type="submit">submit</button>
-  <input type="button" class="btn btn-default" (click)="resetForm()" value="reset">
+  <input type="button" class="btn btn-secondary" (click)="resetForm()" value="reset">
 </form>
 
 
@@ -27,26 +40,12 @@
 
 
 
+<br>
+<br>
+<br>
 
 <footer class="footer text-center">
-    <div class="container">
-      <ul class="list-inline mb-5">
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-facebook"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white mr-3" href="#">
-            <i class="icon-social-twitter"></i>
-          </a>
-        </li>
-        <li class="list-inline-item">
-          <a class="social-link rounded-circle text-white" href="#">
-            <i class="icon-social-github"></i>
-          </a>
-        </li>
-      </ul>
-      <p class="text-muted small mb-0">Copyright © ibiz angular 2019</p>
-    </div>
-  </footer>
+  <div class="container">
+    <p class="text-muted small mb-0">Copyright © ibiz angular 2019</p>
+  </div>
+</footer>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -19,8 +19,10 @@ export class LeoComponent implements OnInit {
     private translate: TranslateService
   ) { 
     this.vixxForm = this.formBuilder.group({
-      id: '',
-      text: ''
+      id: ['', Validators.required],
+      text: '',
+      name: ''
+      // name: ['', Validators.minLength(4)]
     });
 
     // this.pageName = {testTitle: 'VIXX'};
@@ -31,7 +33,7 @@ export class LeoComponent implements OnInit {
   }
 
   onSubmit(formDatas) {
-    console.warn('sendData ===> ', formDatas);
+    console.log('sendData ===> ', formDatas);
     // sandbox 구현하기
     this.vixxForm.reset();
   }
