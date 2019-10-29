@@ -7,9 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './leo.component.html',
   styleUrls: [
     './leo.component.css',
-    './external-source/bootstrap/css/bootstrap.css',
-    './external-source/simple-line/css/stylish-portfolio.css',
-    './external-source/simple-line/css/simple-line-icons.css'
+    './external-source/bootstrap/css/bootstrap.css'
   ]
 })
 export class LeoComponent implements OnInit {
