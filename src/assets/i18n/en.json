@@ -11,5 +11,10 @@
         "Title": "Ooops, Page Not Found",
         "Subtitle": "Please, return to the previous page",
         "Button": "Go back"
+    },
+    "testPage": {
+      "title": "This is '{{pageName}}' TEST PAGE!",
+      "title1": "Test1",
+      "title22": "Test22"
     }
 }
