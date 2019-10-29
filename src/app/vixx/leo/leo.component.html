@@ -1,9 +1,34 @@
-<p>
-leo works!
-</p>
-<button>A</button>
+<button class="btn btn-xs" (click)="switchLanguage('en')">{{ "eng" | translate }}</button>
+<button class="btn btn-xs" (click)="switchLanguage('ko')">{{ "kor" | translate }}</button>
+<div class="jumbotron">
+  <h3>{{ "testPage.title" | translate:langDatas }}</h3>
+  <p>{{ "testPage.title1" | translate }}</p>
+</div>
+<p>{{ "testPage.title22" | translate }}</p>
 
-<!-- <footer class="footer text-center">
+<br>
+<br>
+
+<form [formGroup]="vixxForm" (ngSubmit)="onSubmit(vixxForm.value)">
+  <div class="form-group">
+    <label for="memberId">ID <span class="text-danger">*</span></label>
+    <input type="text" class="form-control" formControlName="id" id="memberId">
+  </div>
+  <div class="form-group">
+    <label for="memberText">MEMO</label>
+    <input type="text" class="form-control" formControlName="text" id="memberText">
+  </div>
+  <button class="btn btn-primary" type="submit">submit</button>
+  <input type="button" class="btn btn-default" (click)="resetForm()" value="reset">
+</form>
+
+
+
+
+
+
+
+<footer class="footer text-center">
     <div class="container">
       <ul class="list-inline mb-5">
         <li class="list-inline-item">
@@ -22,6 +47,6 @@ leo works!
           </a>
         </li>
       </ul>
-      <p class="text-muted small mb-0">Copyright © Your Website 2019</p>
+      <p class="text-muted small mb-0">Copyright © ibiz angular 2019</p>
     </div>
-  </footer> -->
+  </footer>
