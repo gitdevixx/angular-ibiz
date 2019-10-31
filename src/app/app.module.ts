@@ -22,10 +22,6 @@ import { VixxModule } from './vixx/vixx.module';
 import { KjhMdModule } from './kjh-md/kjh-md.module';
 // Environment
 import { environment } from '../environments/environment'
-//Angular Material
-import { MatInputModule } from '@angular/material/input'; 
-import { MatButtonModule } from '@angular/material/button';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -63,13 +59,7 @@ export function createTranslateLoader(http: HttpClient) {
     /**
      * App Routing Module
      */
-    AppRoutingModule, 
-    /**
-     * Angular Material
-     */
-    BrowserAnimationsModule,
-    MatInputModule, 
-    MatButtonModule
+    AppRoutingModule,
     
 
   ],
