@@ -58,7 +58,6 @@ export class TestSandbox {
             }
         }))
         this.subscriptions.push(this.userInfoFaild$.subscribe((failed: boolean) => {
-            console.log("failed : " + failed)
             if (failed) {
                 this.userInfo = ""
             }

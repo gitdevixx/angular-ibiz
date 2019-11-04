@@ -15,6 +15,7 @@ import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './shared/components/pageNotFound/pageNotFound.component'
 // Store
 import { reducers, effects } from './shared/store';
+import { FirebaseModule } from './shared/module/firebase.module';
 // Sub Modules
 import { MainModule } from './main/main.module'
 import { TestModule } from './test/test.module';
@@ -42,6 +43,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    FirebaseModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // 가장 최근에 변화한 state 변경을 25개까지 보여준다
@@ -60,7 +62,7 @@ export function createTranslateLoader(http: HttpClient) {
      * App Routing Module
      */
     AppRoutingModule,
-    
+
 
   ],
   bootstrap: [AppComponent]
