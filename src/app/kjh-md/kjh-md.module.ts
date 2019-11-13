@@ -4,6 +4,7 @@ import { KjhMainComponent } from './kjh-main/kjh-main.component'
 import { KjhMdRoutingModule } from './kjh-md-routing.module';
 import { KjhToolbarComponent } from './kjh-toolbar/kjh-toolbar.component';
 import { SharedModule } from '../shared/module/shared.module';
+import { KjhMdSandbox } from './kjh-md.sandbox';
 
 
 @NgModule({
@@ -12,6 +13,9 @@ import { SharedModule } from '../shared/module/shared.module';
     CommonModule, 
     KjhMdRoutingModule,
     SharedModule
+  ],
+  providers: [
+    KjhMdSandbox
   ]
 })
 export class KjhMdModule { }
