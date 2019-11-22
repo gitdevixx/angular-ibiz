@@ -2,9 +2,11 @@ import { createSelector } from 'reselect';
 // Recuder
 import * as fromTest from './reducers/test.reducer'
 import * as kjhMdReducer from './reducers/kjh-md.reducer'
+import * as minaReducer from './reducers/mina.reducer';
 // Effect
 import { TestEffects } from './effects/test.effect';
 import { KjhMdEffects } from './effects/kjh-md.effect';
+import { MinaEffects } from './effects/mina.effect';
 
 /**
  * We treat each reducer like a table in a database. This means
@@ -12,7 +14,8 @@ import { KjhMdEffects } from './effects/kjh-md.effect';
  */
 export interface State {
   userInfo: fromTest.State,
-  userInfoKjh: kjhMdReducer.State
+  userInfoKjh: kjhMdReducer.State,
+  minaInfo: minaReducer.State
 }
 
 /**
@@ -24,7 +27,8 @@ export interface State {
  */
 export const reducers = {
   userInfo: fromTest.reducer,
-  userInfoKjh : kjhMdReducer.reducer
+  userInfoKjh : kjhMdReducer.reducer,
+  minaInfo: minaReducer.reducer
 };
 
 /**
@@ -32,7 +36,8 @@ export const reducers = {
  */
 export const effects = [
   TestEffects,
-  KjhMdEffects
+  KjhMdEffects,
+  MinaEffects
 ]
 
 /**
@@ -50,3 +55,9 @@ export const getUserInfoLoadedKjh = createSelector(getUserInfoStateKjh, kjhMdRed
 export const getUserInfoLoadingKjh = createSelector(getUserInfoStateKjh, kjhMdReducer.getLoading);
 export const getUserInfoKjh = createSelector(getUserInfoStateKjh, kjhMdReducer.getUser);
 export const getUserInfoFailedKjh = createSelector(getUserInfoStateKjh, kjhMdReducer.getFailed);
+
+export const getMinaInfoState = (state: State) => state.minaInfo;
+export const getMinaInfo = createSelector(getMinaInfoState, minaReducer.getMina);
+export const getMinaInfoLoaded = createSelector(getMinaInfoState, minaReducer.getLoaded);
+export const getMinaInfoLoading = createSelector(getMinaInfoState, minaReducer.getLoading);
+export const getMinaInfoFailed = createSelector(getMinaInfoState, minaReducer.getFailed);

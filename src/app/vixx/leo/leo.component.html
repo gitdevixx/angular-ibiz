@@ -34,8 +34,11 @@
 
   <button class="btn btn-primary" type="submit">submit</button>
   <input type="button" class="btn btn-secondary" (click)="resetForm()" value="reset">
+  <input type="button" class="btn btn-warning" (click)="callMinaTest($event, '98')" value="test">
+  <input type="button" class="btn btn-warning" (click)="callMinaTest($event, memberId.value)" value="test2input">
 </form>
 
+<spinner [isRunning]="minaSandbox.minaInfoLoading$ | async"></spinner>
 
 
 

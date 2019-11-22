@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
+import { MinaSandbox } from '../mina.sandbox';
+
 @Component({
   selector: 'app-leo',
   templateUrl: './leo.component.html',
@@ -14,9 +16,14 @@ export class LeoComponent implements OnInit {
   vixxForm;
   langDatas = {pageName: 'VIXX'};
 
+  // minaVar
+  public submitted: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
-    private translate: TranslateService
+    private translate: TranslateService,
+    // minaSandbox
+    private minaSandbox: MinaSandbox
   ) { 
     this.vixxForm = this.formBuilder.group({
       id: ['', Validators.required],
@@ -25,7 +32,7 @@ export class LeoComponent implements OnInit {
       // name: ['', Validators.minLength(4)]
     });
 
-    // this.pageName = {testTitle: 'VIXX'};
+    // this.langDatas = {pageName: 'VIXX'};
   }
 
   resetForm() {
@@ -36,6 +43,14 @@ export class LeoComponent implements OnInit {
     console.log('sendData ===> ', formDatas);
     // sandbox 구현하기
     this.vixxForm.reset();
+  }
+
+  // minaFunc
+  callMinaTest(event: Event, userId: string): void {
+    event.stopPropagation();
+    this.submitted = true;
+
+    this.minaSandbox.getMyMinaDetail(userId);
   }
 
   // 공통 service 가능한지 추후 확인하기
