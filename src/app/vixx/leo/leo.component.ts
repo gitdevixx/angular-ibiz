@@ -16,9 +16,6 @@ export class LeoComponent implements OnInit {
   vixxForm;
   langDatas = {pageName: 'VIXX'};
 
-  // minaVar
-  public submitted: boolean = false;
-
   constructor(
     private formBuilder: FormBuilder,
     private translate: TranslateService,
@@ -48,9 +45,14 @@ export class LeoComponent implements OnInit {
   // minaFunc
   callMinaTest(event: Event, userId: string): void {
     event.stopPropagation();
-    this.submitted = true;
 
-    this.minaSandbox.getMyMinaDetail(userId);
+    if(isNaN(Number(userId))) {
+      window.alert('You can test only number!');
+      document.getElementById('memberId').focus();
+    } else {
+      this.minaSandbox.getMyMinaDetail(userId);
+    }
+    
   }
 
   // 공통 service 가능한지 추후 확인하기

@@ -18,7 +18,7 @@ export class MinaEffects {
   ) { }
 
   // baseURL: string = environment.backend.baseURL // not work in stackblitz
-  baseURL: string = "https://fierce-cove-29863.herokuapp.com"
+  baseURL: string = "https://fierce-cove-29863.herokuapp.com" // work in stackblitz
 
   @Effect()
   getMinaDetail$: Observable<Action> = this.actions$.pipe(
@@ -27,8 +27,7 @@ export class MinaEffects {
     switchMap((userId) => {     
 console.log("userId: " + userId)
 
-      // return this.http.get('${this.baseURL}/getAnUserDetail/${userId}').pipe(
-      return this.http.get('https://fierce-cove-29863.herokuapp.com/getAnUserDetail/${userId}').pipe(
+      return this.http.get(`${this.baseURL}/getAnUserDetail/${userId}`).pipe(
         map((response: JSON) => {
 console.log("response ===> " + JSON.stringify(response))
           return new actions.GetMinaDetailSuccessAction(response)

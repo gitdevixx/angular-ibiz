@@ -14,6 +14,7 @@ export class MinaSandbox {
   public minaInfoFailed$ = this.appState$.select(store.getMinaInfoFailed);
 
   public minaInfo: string = "";
+  public minaObject;
 
   private subscriptions: Array<Subscription> = [];
 
@@ -54,6 +55,7 @@ export class MinaSandbox {
     this.subscriptions.push(this.minaInfo$.subscribe((user: JSON) => {
       if(user && user['id'] && user['id'].length > 0) {
         this.minaInfo = JSON.stringify(user);
+        this.minaObject = user;
       }
     }))
     this.subscriptions.push(this.minaInfoFailed$.subscribe((failed: boolean) => {
