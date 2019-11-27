@@ -3,6 +3,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { EffectsModule } from '@ngrx/effects';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../components/spinner/spinner.component';
+import { ControlMessagesComponent } from '../components/control-messages/control-messages.component'
 import { FirebaseModule } from './firebase.module';
 //Angular Material
 import { MatInputModule } from '@angular/material/input';
@@ -12,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar'
 
 export const COMPONENTS = [
   SpinnerComponent,
+  ControlMessagesComponent,
 ]
 
 @NgModule({
