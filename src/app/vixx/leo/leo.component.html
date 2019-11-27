@@ -24,9 +24,7 @@
   <div class="form-group">
     <label for="memberId">ID <span class="text-danger">*</span></label>
     <input type="text" class="form-control" formControlName="id" id="memberId" #uid required>
-    <div *ngIf="!vixxForm.valid" class="text-danger">
-      ID is required.
-    </div>
+    <control-messages [control]="vixxForm.get('id')"></control-messages>
   </div>
 
   <div class="form-group">
@@ -42,7 +40,7 @@
     </div> -->
   </div>
 
-  <button class="btn btn-primary" type="submit">submit</button>
+  <button class="btn btn-primary" type="submit" [disabled]="!vixxForm.valid">submit</button>
   <input type="button" class="btn btn-secondary" (click)="resetForm()" value="reset">
   <input type="button" class="btn btn-warning" (click)="callMinaTest($event, uid.value)" value="callTest">
 </form>

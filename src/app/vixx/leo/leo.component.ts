@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 
 import { MinaSandbox } from '../mina.sandbox';
+import { ValidationService } from '../../shared/service/validation.service'
 
 @Component({
   selector: 'app-leo',
@@ -23,7 +24,7 @@ export class LeoComponent implements OnInit {
     private minaSandbox: MinaSandbox
   ) { 
     this.vixxForm = this.formBuilder.group({
-      id: ['', Validators.required],
+      id: ['', [Validators.required, ValidationService.numberValidator, Validators.minLength(4),]],
       text: '',
       name: ''
       // name: ['', Validators.minLength(4)]
