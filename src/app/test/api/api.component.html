@@ -11,7 +11,7 @@
 <br/>
 <div>
     <span>결과값 : </span>
-    <span>{{testSandbox.userInfo}}</span>
+    <span>{{ (testSandbox.userInfo$ | async) | json }}</span>
 </div>
 
 <spinner [isRunning]="testSandbox.userInfoLoading$ | async"></spinner>
