@@ -1,0 +1,15 @@
+<div fxLayout="row">
+  <div fxFlex="10" fxFlex.gt-sm="20"></div>
+  <div fxFlex="90" fxFlex.gt-sm="80">
+    <h1 class="header__title" >Idols most liked</h1>
+    <div id="idols-list" *ngIf="idols as idols; else loading">
+      <ng-container *ngFor="let idol of idols">
+        <app-idol-card [idol]="idol"></app-idol-card>
+      </ng-container>
+    </div>
+    <ng-template #loading>
+      <spinner [isRunning]="loading" [isSmall]="false"></spinner>
+    </ng-template>
+  </div>
+  <div fxFlex="10" fxFlex.gt-sm="20"></div>
+</div>

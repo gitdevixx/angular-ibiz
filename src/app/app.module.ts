@@ -8,6 +8,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 // Root routing module
 import { AppRoutingModule } from './app-routing.module';
 // Root components
@@ -44,6 +45,7 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     FirebaseModule,
+    LazyLoadImageModule.forRoot({}),
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // 가장 최근에 변화한 state 변경을 25개까지 보여준다

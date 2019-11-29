@@ -1,0 +1,26 @@
+<mat-card class="idol-card" *ngIf="idol" [@fadeIn]="fadeIn">
+  <mat-card-header>
+    <a mat-card-avatar [routerLink]="idol.default ? [routesConfig.routes.idoles.detail(idol.id)] : []">
+      <img alt="idol avatar" mat-card-avatar [src]="defaultImage_url">
+    </a>
+    <mat-card-title>
+      <a class="idol-detail-link" [routerLink]="idol.default ? [routesConfig.routes.idoles.detail(idol.id)] : []">
+        {{idol.name}}
+      </a>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <a class="idol-detail-link" [routerLink]="idol.default ? [routesConfig.routes.idoles.detail(idol.id)] : []">
+        {{idol.age}}
+      </a>
+    </mat-card-subtitle>
+    <div class="flex-spacer"></div>
+    <div class="idol-actions">
+      {{idol.likes}}
+      <mat-icon class="icon__like--red" (click)="like(idol)">favorite
+      </mat-icon>
+    </div>
+  </mat-card-header>
+  <a class="idol-detail-link" [routerLink]="idol.default ? [routesConfig.routes.idoles.detail(idol.id)] : []">
+    <img alt="{{idol.name}} idol image" [defaultImage]="defaultImage_url" [lazyLoad]="defaultImage_url">
+  </a>
+</mat-card>
