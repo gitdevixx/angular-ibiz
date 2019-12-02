@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import { catchError, map, tap } from 'rxjs/operators';
 import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 import { AngularFirestore, AngularFirestoreCollection, DocumentReference } from '@angular/fire/firestore';
-
+import { TranslateService } from '@ngx-translate/core'
+import { CookieService } from 'ngx-cookie';
 
 @Injectable({
     providedIn: 'root'
@@ -15,6 +16,8 @@ export class IdolService {
     constructor(
         private afs: AngularFirestore,
         private snackBar: MatSnackBar,
+        public translate: TranslateService,
+        private cookieService: CookieService
     ) {
         this.itemsCollection = this.afs.collection<any>('idol', (idol) => {
             return idol.orderBy('likes', 'desc');
@@ -36,6 +39,11 @@ export class IdolService {
         };
     }
 
+    checkIfUserCanVote(): boolean {
+        const votes = this.cookieService.get('votes');
+        return Number(votes ? votes : 0) < 5;
+    }
+
     getIdols(): Observable<any[]> {
         return this.itemsCollection.snapshotChanges()
             .pipe(
@@ -53,7 +61,7 @@ export class IdolService {
     updateIdol(idol: any): Promise<void> {
         return this.afs.doc(`/idol/${idol.id}`).update(JSON.parse(JSON.stringify(idol))).then(() => {
             console.log(`updated idol w/ id=${idol.id}`);
-            this.showSnackBar('Saved');
+            this.showSnackBar(this.translate.instant('idol.saved'));
         });
     }
 

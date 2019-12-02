@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IdolService } from '../../shared/service/idol.service'
+import { TranslateService } from '@ngx-translate/core'
 
 @Component({
   selector: 'app-idol-pick',
@@ -12,6 +13,7 @@ export class IdolPickComponent implements OnInit {
 
   constructor(
     private idolService: IdolService,
+    public translate: TranslateService,
 
   ) {
 

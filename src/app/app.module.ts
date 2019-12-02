@@ -9,6 +9,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
+import { CookieModule } from 'ngx-cookie';
 // Root routing module
 import { AppRoutingModule } from './app-routing.module';
 // Root components
@@ -44,6 +45,7 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
+    CookieModule.forRoot(),
     FirebaseModule,
     LazyLoadImageModule.forRoot({}),
     StoreModule.forRoot(reducers),
