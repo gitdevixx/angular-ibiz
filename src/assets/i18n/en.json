@@ -16,5 +16,10 @@
       "title": "This is '{{pageName}}' TEST PAGE!",
       "title1": "Test1",
       "title22": "Test22"
+    },
+    "idol": {
+      "title": "Idols most liked",
+      "saved": "Saved",
+      "cantVoteMsg": "Can't vote anymore"
     }
 }
