@@ -17,7 +17,7 @@ export class IdolService {
         private snackBar: MatSnackBar,
     ) {
         this.itemsCollection = this.afs.collection<any>('idol', (idol) => {
-            return idol.orderBy('name', 'desc');
+            return idol.orderBy('likes', 'desc');
             // return idol.orderBy('name', 'desc').orderBy('likes', 'desc');
         });
 
@@ -48,6 +48,19 @@ export class IdolService {
                 tap(() => console.log(`fetched idols`)),
                 catchError(IdolService.handleError('getIdols', []))
             );
+    }
+
+    updateIdol(idol: any): Promise<void> {
+        return this.afs.doc(`/idol/${idol.id}`).update(JSON.parse(JSON.stringify(idol))).then(() => {
+            console.log(`updated idol w/ id=${idol.id}`);
+            this.showSnackBar('Saved');
+        });
+    }
+
+    showSnackBar(name): void {
+        const config: any = new MatSnackBarConfig();
+        config.duration = 3000;
+        this.snackBar.open(name, 'OK', config);
     }
 
 }

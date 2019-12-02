@@ -16,9 +16,8 @@ import { fadeIn } from 'ng-animate';
 export class IdolCardComponent implements OnInit {
 
   @Input() idol: JSON;
-  // defaultImage_url = "https://github.com/gitdevixx/angular-ibiz/blob/master/src/assets/images/Martian.png?raw=true"
-  // defaultImage_url = "../../assets/images/iu.jpg"
-  defaultImage_url = "https://github.com/gitdevixx/angular-ibiz/blob/master/src/assets/images/vixxDynamite.jpg?raw=true"
+  
+  defaultImage = "../../assets/images/default-idol.png"
 
   constructor(
     private idolService: IdolService,
@@ -31,7 +30,8 @@ export class IdolCardComponent implements OnInit {
   }
 
   like(idol: JSON): Promise<void> {
-    return null;
+    idol['likes'] += 1;
+    return this.idolService.updateIdol(idol);
   }
 
 }
