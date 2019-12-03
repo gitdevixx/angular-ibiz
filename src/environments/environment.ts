@@ -14,6 +14,15 @@ export const environment = {
     projectId: "angularwoong",
     storageBucket: "angularwoong.appspot.com",
     messagingSenderId: "436241205445"
+  }, 
+  firebase_kjh : {
+    apiKey: "AIzaSyCMtrqQPswRqvKkpcBzn0tN2uYmc7gtJmQ",
+    authDomain: "test-angular-d7110.firebaseapp.com",
+    databaseURL: "https://test-angular-d7110.firebaseio.com",
+    projectId: "test-angular-d7110",
+    storageBucket: "test-angular-d7110.appspot.com",
+    messagingSenderId: "773302093276",
+    appId: "1:773302093276:web:bc391838c60fc404bafb19"
   }
 };
 
