@@ -7,6 +7,7 @@ import {environment} from '../../../environments/environment';
 @NgModule({
   imports: [
     AngularFireModule.initializeApp(environment.firebase, '/'),
+    // AngularFireModule.initializeApp(environment.firebase_kjh, '/'),
     AngularFirestoreModule,
     AngularFireStorageModule,//파이어베이스 파일 저장소 관련된 모듈 사용
   ],

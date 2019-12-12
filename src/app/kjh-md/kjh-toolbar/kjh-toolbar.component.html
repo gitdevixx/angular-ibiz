@@ -18,6 +18,13 @@
     
     </form> -->
 
+    <div>
+      <input type="text" name="searchText" #searchText>
+      <input type="button" name="addSearchTextButton" value="추가" (click)="addSearchText(searchText.value)">&nbsp;
+      <input type="button" name="delSearchTextButton" value="삭제" (click)="deleteSearchText(searchText.value)">&nbsp;
+      
+    </div>
+
 
   </mat-toolbar-row>
 </mat-toolbar>
